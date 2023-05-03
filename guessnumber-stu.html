@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <h1 id="title">Please guess a number</h1>
+    <input type="number" name="number" id="numberinput" />
+    <button type="button" onclick="myfunction()">Guess</button>
+    <p id="showmsg"></p>
+  </body>
+  <script type="text/javascript">
+    var randomnumber = Math.floor(Math.random() * 10);
+    var number = document.getElementById("numberinput");
+    var showmsg = document.getElementById("showmsg");
+    var msg = null;
+    let count_num = 0;
+
+    function myfunction() {
+      //create a number guess game and code under the corresponding comment
+      // task 1 , refer to https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random and create a random number
+
+      if (randomnumber) {
+        var title = document.getElementById("title");
+        title.innerText = "Please start guessing";
+      }
+      // task 2 , put the random number into this variable = "randomnumber"
+
+      // task 3 , check the userinput. the userinput will be stored as "userinput"
+      var userinput = parseInt(number.value);
+
+      if (userinput == randomnumber && count_num < 5) {
+        console.log("Right!");
+        randomnumber = Math.floor(Math.random() * 10);
+        count_num = 0;
+      } else if (userinput > randomnumber && count_num < 5) {
+        console.log("Guess a smaller number");
+      } else if (userinput < randomnumber && count_num < 5) {
+        console.log("Guess a larger number");
+      }
+
+      count_num++;
+      //   if not correct {
+      // 	if greater than{
+
+      // 	} else if (less than){
+
+      // 	}
+      //   } else {
+
+      //   }
+
+      // task 4 , (until the user guesses the correct number) based on result, show the result into the variable "msg"
+
+      if (count_num == 5) {
+        console.log("Another round!");
+        randomnumber = Math.floor(Math.random() * 10);
+        count_num = 0;
+      }
+
+      if (msg) {
+        showmsg.innerText = msg;
+      }
+      // task 5 bonus: user can only guess 5 times
+    }
+  </script>
+</html>
